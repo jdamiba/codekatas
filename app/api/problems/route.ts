@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const offset = Math.max(parseInt(searchParams.get("offset") || "0"), 0); // Ensure non-negative
 
     let query = `
-      SELECT id, title, description, category, estimated_time_minutes, created_at
+      SELECT id, title, description, category, solution_explanation, key_concepts, estimated_time_minutes, created_at
       FROM problems 
       WHERE language = 'javascript'
     `;

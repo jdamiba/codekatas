@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import { ArrowLeft, Play, Pause, RotateCcw, CheckCircle } from "lucide-react";
 import CodeEditor from "./CodeEditor";
 import PerformanceMetrics from "./PerformanceMetrics";
+import SolutionExplanation from "./SolutionExplanation";
 import { PerformanceTracker } from "@/lib/performance-tracker";
 
 interface Problem {
@@ -12,6 +13,8 @@ interface Problem {
   description: string;
   category: string;
   solution_code: string;
+  solution_explanation?: string;
+  key_concepts?: string[];
   estimated_time_minutes: number;
 }
 
@@ -245,7 +248,7 @@ export default function TypingInterface({
       <div className="container mx-auto px-6 py-8">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Code Editor - Takes up 3/4 of the space */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 space-y-6">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
               <div className="p-6 border-b border-gray-200 dark:border-gray-700">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -267,6 +270,13 @@ export default function TypingInterface({
                 />
               </div>
             </div>
+
+            {/* Solution Explanation */}
+            <SolutionExplanation
+              solutionExplanation={problem.solution_explanation}
+              keyConcepts={problem.key_concepts}
+              title={problem.title}
+            />
           </div>
 
           {/* Performance Metrics Sidebar */}

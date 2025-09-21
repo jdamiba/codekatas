@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS problems (
   description TEXT,
   category VARCHAR(100) NOT NULL,
   solution_code TEXT NOT NULL,
+  solution_explanation TEXT,
+  key_concepts TEXT[],
   language VARCHAR(50) DEFAULT 'javascript',
   estimated_time_minutes INTEGER DEFAULT 10,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),

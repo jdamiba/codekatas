@@ -8,6 +8,8 @@ interface Problem {
   title: string;
   description: string;
   category: string;
+  solution_explanation?: string;
+  key_concepts?: string[];
   estimated_time_minutes: number;
   created_at: string;
 }

@@ -27,7 +27,7 @@ export async function GET(
 
     const result = await db.query(
       `
-      SELECT id, title, description, category, solution_code, estimated_time_minutes, created_at
+      SELECT id, title, description, category, solution_code, solution_explanation, key_concepts, estimated_time_minutes, created_at
       FROM problems 
       WHERE id = $1 AND language = 'javascript'
     `,

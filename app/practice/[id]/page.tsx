@@ -12,6 +12,8 @@ interface Problem {
   description: string;
   category: string;
   solution_code: string;
+  solution_explanation?: string;
+  key_concepts?: string[];
   estimated_time_minutes: number;
 }
 
